@@ -74,6 +74,17 @@ describe("validate post REST resource",async ()=>{
         
     })
 
+    it("invalid post id",async ()=>{
+        let response=await restUtil.get('post/60d0fe4f5311236168a109ca');
+        //validate response status
+        await expect(response.status).to.equal(404);
+        //validate response message
+        await expect(response.statusText).to.equal('Not Found');
+
+
+    })
+
+
 
    
    

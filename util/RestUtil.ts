@@ -13,7 +13,11 @@ class RestUtil{
         console.log(this.baseUrl+resource)
         if(header==null){
             console.log("header null-->proceeding with default header");
-            return await axios.get(this.baseUrl+resource,this.options)
+        return await axios.get(this.baseUrl+resource,this.options).then((res:any)=>{
+                return res;
+            }).catch((err:any)=>{
+                return err.response;
+            })
         }
         else{
             console.log("header not null-->proceeding with header passed as argument");
